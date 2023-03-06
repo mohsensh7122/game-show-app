@@ -123,8 +123,9 @@ qwerty.addEventListener('click', (e) => {
 function checkWin(){
     const letters = document.querySelectorAll('.letter');
     const shown = document.querySelectorAll('.show');
-
+    
     if (shown.length === letters.length){
+        missed = 0;
         overlay.classList.add('win');
         headlineText.textContent = 'You Won!';
         overlay.style.display = 'flex';
@@ -138,7 +139,8 @@ function checkWin(){
 
         const buttons = document.querySelectorAll('button');
         for (let i = 0; i < buttons.length; i++){
-            buttons[i].classList.remove('chosen')
+            buttons[i].classList.remove('chosen');
+            buttons[i].disabled = false;
         }
 
         const hearts = document.querySelectorAll('.tries img');
@@ -157,10 +159,11 @@ function checkWin(){
     }
 
     if (missed > 4) {
+        missed = 0;
         overlay.classList.add('lose');
         headlineText.textContent = 'You Lost!';
         overlay.style.display = 'flex';
-
+        
         // Restarts the game
         btnReset.textContent = 'Restart the Game';
         for (let i = 0; i < letters.length; i++){
@@ -169,7 +172,8 @@ function checkWin(){
 
         const buttons = document.querySelectorAll('button');
         for (let i = 0; i < buttons.length; i++){
-            buttons[i].classList.remove('chosen')
+            buttons[i].classList.remove('chosen');
+            buttons[i].disabled = false;
         }
 
         const hearts = document.querySelectorAll('.tries img');
