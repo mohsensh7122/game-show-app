@@ -92,10 +92,7 @@ button {
   width: 15px;
 }
 
-.show {
-  color: #000;
-  background-color: #76CE82;
-}
+
 
 /* Keyboard */
 
@@ -117,6 +114,10 @@ button {
   background: #FFFFFF;
   border-radius: 5px;
   font-size: var(--font-size-medium);
+}
+
+.btn__reset:hover {
+  cursor: pointer;
 }
 
 /* Overlay */
@@ -160,4 +161,34 @@ button {
 
 .lose a {
   color: var(--color-lose);
+}
+
+
+
+.show {
+  color: #000;
+  background-color: #76CE82;
+  animation: glowing 0.7s ease-out;
+}
+
+@keyframes glowing {
+  0% {
+    background: #0cb022;
+  
+  }
+
+  25% {
+    background: #53a85e;
+  
+  }
+  50% { 
+    background: #7bbf84;
+  
+  
+  }
+  100% { 
+    
+    background-color: #76CE82;
+  
+  }
 }
